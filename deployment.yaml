@@ -4,6 +4,9 @@ metadata:
   name:  my-first-declarative-deployment
 spec:
   paused: false
+  selector:
+    matchLabels:
+      app: my-first-declarative
   template:
     metadata:
       labels:
