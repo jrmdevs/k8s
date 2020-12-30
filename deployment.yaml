@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  my-first-declarative-deployment
+spec:
+  paused: false
+  template:
+    metadata:
+      labels:
+        app:  my-first-declarative
+    spec:
+      containers:
+      - name: go-hello-world
+        image: dockercampusmvp/go-hello-world
+        imagePullPolicy: Always
