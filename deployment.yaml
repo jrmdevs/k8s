@@ -7,10 +7,6 @@ spec:
   selector:
     matchLabels:
       app: my-first-declarative
-  template:
-    metadata:
-      labels:
-        app:  my-first-declarative
     spec:
       containers:
       - name: go-hello-world
