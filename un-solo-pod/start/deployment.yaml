@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wp-un-solo-pod
+spec:
+  paused: false
+  selector:
+    matchLabels:
+      app: wp-un-solo-pod
+  template:
+    metadata:
+      labels:
+        app: wp-un-solo-pod
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0.3
+        imagePullPolicy: Always
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: P@ssw0rd!
+        - name: MYSQL_DATABASE
+          value: campuswp
+        - name: MYSQL_USER
+          value: eiximenis
+        - name: MYSQL_PASSWORD
+          value: Pa+a+a1!        
+      - name: wordpress
+        image: wordpress:4.9.1-apache
+        imagePullPolicy: Always
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: 127.0.0.1:3306
+        - name: WORDPRESS_DB_NAME
+          value: campuswp
+        - name: WORDPRESS_DB_USER
+          value: eiximenis
+        - name: WORDPRESS_DB_PASSWORD
+          value: Pa+a+a1!                
